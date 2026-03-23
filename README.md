@@ -2,41 +2,37 @@ Secure Local AI Inference Server with Private RAG Pipeline
 
 # Overview
 A local AI assistant running on a dedicated Apple Silicon server. Indexes and 
-searches
-personal documents using a private RAG pipeline. Accessible securely from a 
-second
-machine via Tailscale. Zero cloud exposure, zero third party data access.
+searches my documents using a private RAG pipeline. Accessible securely from a 
+second machine through Tailscale. Zero cloud exposure or third party data access.
 
 # Architecture
-- *Server*: MacBook Air M1 (headless) — runs Ollama + Gemma 3 4B + FastAPI
-- *Client*: MacBook Air M5 — queries server via Tailscale private network
-- *Network*: Tailscale encrypted mesh, no public internet exposure
+- *Server* laptop1 (headless): runs Ollama + Gemma 3 4B + FastAPI
+- *Client* laptop2: queries server via Tailscale private network
+- *Network* Tailscale encrypted mesh, no public internet exposure
 
 # Stack
-- Ollama — local LLM inference engine
-- Gemma 3 4B — language model
-- nomic-embed-text — embedding model
-- LlamaIndex — RAG orchestration
-- ChromaDB — local vector database
-- FastAPI — REST API layer
-- Tailscale — private encrypted network
-- LuLu — outbound connection monitoring
+- Ollama: local LLM inference engine
+- Gemma 3 4B: language model
+- nomic-embed-text: embedding model
+- LlamaIndex: RAG orchestration
+- ChromaDB: local vector database
+- FastAPI: REST API layer
+- Tailscale: private encrypted network
+- LuLu: outbound connection monitoring
 
 # Threat Model
 ## What I'm protecting
-- Personal documents: resume, job descriptions, capstone notes, study 
+- My documents: resume, job descriptions, capstone notes, study 
 materials
 - Home network integrity
 - Server from unauthorized access
 
 # Who can access
-- Only me, from devices I control
-- Only over Tailscale encrypted private network
-- No open ports, no public endpoints
+- Only me, from devices I control and only over Tailscale encrypted private network. No open ports or public endpoints
 
 # Trust boundaries
-- M1 server: Ollama and API bound to Tailscale IP only
-- M5 client: queries via Tailscale only
+- server laptop: Ollama and API bound to Tailscale IP only
+- client laptop: queries via Tailscale only
 - Public internet: no access whatsoever
 
 # Threat & mitigations
