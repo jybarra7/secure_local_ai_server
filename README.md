@@ -16,6 +16,7 @@ second machine through Tailscale. Zero cloud exposure or third party data access
 - nomic-embed-text: embedding model
 - LlamaIndex: RAG orchestration
 - ChromaDB: local vector database
+- SQLite: structured job application tracker
 - FastAPI: REST API layer
 - Tailscale: private encrypted network
 - LuLu: outbound connection monitoring
@@ -53,3 +54,7 @@ materials
 - Phase 2: RAG pipeline working, ChromaDB ingesting docs locally
 - Phase 3: FastAPI secured, Tailscale two-node network live
 - Phase 4: Documentation and GitHub
+- Phase 5: Hybrid agentic RAG — SQLite job tracker added, RouterQueryEngine
+  routes natural language queries between ChromaDB (unstructured docs) and
+  SQLite (structured job applications). Shared config layer eliminates OpenAI
+  fallback. Server runs headless via launchd on boot.
